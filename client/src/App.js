@@ -10,11 +10,18 @@ const apiCall = () => {
   })
 }
 
+const apiAdvanceCall = () => {
+    axios.get(URL+'/ingredientCategory').then((data)=>{
+        console.log(data);
+    })
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <button onClick={apiCall}>Make API Call</button>
+        <button onClick={apiAdvanceCall}>Log all Ingredient Categories</button>
       </header>
     </div>
   );
