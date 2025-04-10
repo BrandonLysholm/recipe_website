@@ -12,7 +12,10 @@ const apiCall = () => {
 
 const apiAdvanceCall = () => {
     axios.get(URL+'/ingredientCategory').then((data)=>{
-        console.log(data);
+        console.log(data.data);
+        for (let ingredient in data.data){
+            console.log(ingredient + '\n');
+        }
     })
 }
 

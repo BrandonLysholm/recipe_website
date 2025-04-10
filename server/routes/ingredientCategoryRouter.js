@@ -12,6 +12,8 @@ router.get('/', async (req,res)=>{
         console.log('\n\n');
     }
 
+    res.send(allIngredientCategories);
+
 })
 
 module.exports = router;
