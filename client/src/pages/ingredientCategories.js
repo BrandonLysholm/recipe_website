@@ -1,38 +1,19 @@
 import React from "react";
 import CategoryTable from "../components/categoryTable.tsx";
-import axios from "axios";
+import fetch from "sync-fetch";
 
 function getData() {
-    let res;
-    axios.get("http://localhost:8080/ingredientCategory").then((response)=>{
-        console.log('got response from server')
-        res = response.data;
-    })
-    return res;
+    return fetch("http://localhost:8080/ingredientCategory").json();
 }
 
 const IngredientCategories = () => {
-    // let apiResponse = getData();
-
-
-    // console.log("response is " + apiResponse)
-    let apiResponse = [
-        {
-            id: 1,
-            name: 'dummy data'
-        },
-        {
-            id: 22,
-            name: 'second dummy'
-        }
-    ]
-
+    let apiResponse = getData();
     return (
         <div>
             <h1>
                 Page for Ingredient Categories
-                {CategoryTable(apiResponse)}
             </h1>
+            {CategoryTable(apiResponse)}
         </div>
     );
 };

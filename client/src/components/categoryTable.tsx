@@ -22,12 +22,12 @@ function CategoryTable(data) {
 
     const columns = [
         columnHelper.accessor('id', {
+            header: 'ID',
             cell: info=> info.getValue(),
-            footer: info => info.column.id
         }),
         columnHelper.accessor('name', {
+            header: 'Name',
             cell: info=> info.getValue(),
-            footer: info => info.column.id
         })
     ]
 
@@ -64,20 +64,6 @@ function CategoryTable(data) {
                 </tr>
             ))}
             </tbody>
-            <tfoot>
-            {table.getFooterGroups().map(footerGroup => (
-                <tr key={footerGroup.id}>
-                    {footerGroup.headers.map(header => (
-                        <td key={header.id}>
-                            {header.isPlaceholder ? null : flexRender(
-                                header.column.columnDef.footer,
-                                header.getContext()
-                            )}
-                        </td>
-                    ))}
-                </tr>
-            ))}
-            </tfoot>
         </table>
     )
 
