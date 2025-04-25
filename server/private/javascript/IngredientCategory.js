@@ -12,6 +12,7 @@ const IngredientCategory = sequelize.define('IngredientCategory', {
     },
     {
         freezeTableName: true,
+        timestamps: false,
     })
 
 module.exports = IngredientCategory;
