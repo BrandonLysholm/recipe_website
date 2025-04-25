@@ -2,12 +2,12 @@ const Ingredient = require("../private/javascript/Ingredient");
 const IngredientCategory = require("../private/javascript/IngredientCategory");
 
 async function fillIngredientTable() {
-    const protein = await IngredientCategory.findOne({where: {ingredientCategoryName: 'protein'}});
-    const veg = await IngredientCategory.findOne({where: {ingredientCategoryName: 'vegetable'}});
-    const dairy = await IngredientCategory.findOne({where: {ingredientCategoryName: 'dairy'}});
-    const spice = await IngredientCategory.findOne({where: {ingredientCategoryName: 'spice'}});
-    const carb = await IngredientCategory.findOne({where: {ingredientCategoryName: 'carb'}});
-    const misc = await IngredientCategory.findOne({where: {ingredientCategoryName: 'misc'}});
+    const protein = await IngredientCategory.findOne({where: {name: 'protein'}});
+    const veg = await IngredientCategory.findOne({where: {name: 'vegetable'}});
+    const dairy = await IngredientCategory.findOne({where: {name: 'dairy'}});
+    const spice = await IngredientCategory.findOne({where: {name: 'spice'}});
+    const carb = await IngredientCategory.findOne({where: {name: 'carb'}});
+    const misc = await IngredientCategory.findOne({where: {name: 'misc'}});
 
     const Ingredients = [
         {name: 'chicken breast', cat: protein},

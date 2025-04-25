@@ -11,7 +11,7 @@ async function fillIngredientCategoryTable() {
     ];
     for (const ingredientCategory of IngredientCategories) {
         await IngredientCategory.create({
-            ingredientCategoryName: ingredientCategory
+            name: ingredientCategory
         });
     }
 }

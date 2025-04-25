@@ -2,7 +2,7 @@ const {DataTypes, sequelize} = require("../../dataSource");
 
 
 const IngredientCategory = sequelize.define('IngredientCategory', {
-        ingredientCategoryName: {
+        name: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
