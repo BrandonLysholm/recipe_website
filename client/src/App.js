@@ -1,32 +1,56 @@
-import logo from './logo.svg';
-import axios from 'axios';
-import './App.css';
+// https://www.geeksforgeeks.org/how-to-create-a-multi-page-website-using-react-js/
+
+// import logo from './logo.svg';
+import React from 'react';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route
+} from 'react-router-dom';
+import Home from './pages';
+import IngredientCategories from './pages/ingredientCategories';
+import myNav from "./components/navbar";
+
+
+
+
+
+// import axios from 'axios';
+// import './App.css';
 
 const URL = 'http://localhost:8080';
 
-const apiCall = () => {
-  axios.get(URL).then((data)=>{
-    console.log(data);
-  })
-}
-
-const apiAdvanceCall = () => {
-    axios.get(URL+'/ingredientCategory').then((data)=>{
-        console.log(data.data);
-        for (let ingredient in data.data){
-            console.log(ingredient + '\n');
-        }
-    })
-}
+// const apiCall = () => {
+//   axios.get(URL).then((data)=>{
+//     console.log(data);
+//   })
+// }
+//
+// const apiAdvanceCall = () => {
+//     axios.get(URL+'/ingredientCategory').then((data)=>{
+//         console.log(data.data);
+//         for (let ingredient in data.data){
+//             console.log(ingredient + '\n');
+//         }
+//     })
+// }
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={apiCall}>Make API Call</button>
-        <button onClick={apiAdvanceCall}>Log all Ingredient Categories</button>
-      </header>
-    </div>
+
+      <Router>
+          <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+              integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+              crossOrigin="anonymous"
+          />
+          {myNav()}
+          <Routes>
+              <Route exact path="/" element={<Home/>}/>
+              <Route path="/ingredientCategories" element={<IngredientCategories/>}/>
+          </Routes>
+      </Router>
   );
 }
 
