@@ -6,8 +6,11 @@ const IngredientCategory = sequelize.define('IngredientCategory', {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
-            isLowercase: true,
-            notEmpty: true
+            validate: {
+                isAlpha: true,
+                notEmpty: true,
+                isLowercase: true,
+            }
         }
     },
     {

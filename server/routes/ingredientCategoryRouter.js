@@ -19,17 +19,57 @@ router.get('/', async (req,res)=>{
 
 router.post('/', async (req,res)=>{
     let status = 200;
+    let msg = "weird";
+    try {
+        if (req.body !== undefined && req.body.name !== undefined){
+            // sanitize input by making it all lowercase
+            let newName = req.body.name.toLowerCase();
 
-    if (req.body !== undefined && req.body.name !== undefined){
-        let newName = req.body.name;
-        const response = await IngredientCategory.create({name: newName});
-        console.log(response);
-    } else {
+            msg = await IngredientCategory.create({name: newName});
+        } else {
+            status = 400;
+            msg = "no body or name field"
+        }
+    } catch (error) {
+        if (error.errors) {
+            msg =error.errors[0].message;
+        } else {
+            msg=error.message;
+        }
         status = 400;
     }
-    res.status(status);
-    res.send();
 
+    res.status(status).send(msg);
+})
+
+router.put('/', async (req,res)=>{
+    let status = 200;
+    let msg = "weird";
+
+    if (req.body !== undefined && req.body.id !== undefined){
+        const currentEntry = await IngredientCategory.findByPk(req.body.id);
+        if (currentEntry !== undefined){
+            try {
+                msg = await currentEntry.update({name: req.body.name ? (req.body.name).toLowerCase() : undefined});
+            } catch(error) {
+                if (error.errors) {
+                    msg =error.errors[0].message;
+                } else {
+                    msg=error.message;
+                }
+                status = 400;
+            }
+
+        } else {
+            status = 404;
+            msg = "no entries match that key";
+        }
+    } else {
+        status = 400;
+        msg = "no body or id field";
+    }
+
+    res.status(status).send(msg);
 })
 
 router.delete('/', async (req,res)=>{
