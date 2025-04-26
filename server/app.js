@@ -4,8 +4,10 @@ const cors = require('cors');
 
 const ingredientCategoryRouter = require('./routes/ingredientCategoryRouter');
 
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status#client_error_responses
 
 app.use(cors());
+app.use(express.json())
 
 app.listen(8080, ()=>{
     console.log('Server running on port 8080');
