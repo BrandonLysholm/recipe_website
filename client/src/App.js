@@ -11,6 +11,9 @@ import Home from './pages';
 import IngredientCategories from './pages/ingredientCategories';
 import myNav from "./components/navbar";
 
+// Components
+import Create from './components/create'
+import Update from './components/update'
 
 
 
@@ -49,6 +52,8 @@ function App() {
           <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/ingredientCategories" element={<IngredientCategories/>}/>
+              <Route path="ingredientCategories/create" element={<Create/>}/>
+              <Route path="ingredientCategories/update" element={<Update/>}/>
           </Routes>
       </Router>
   );

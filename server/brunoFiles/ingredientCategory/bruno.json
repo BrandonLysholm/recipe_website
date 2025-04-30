@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "ingredientCategory",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
