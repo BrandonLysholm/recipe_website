@@ -16,28 +16,6 @@ import Create from './components/create'
 import Update from './components/update'
 
 
-
-
-// import axios from 'axios';
-// import './App.css';
-
-const URL = 'http://localhost:8080';
-
-// const apiCall = () => {
-//   axios.get(URL).then((data)=>{
-//     console.log(data);
-//   })
-// }
-//
-// const apiAdvanceCall = () => {
-//     axios.get(URL+'/ingredientCategory').then((data)=>{
-//         console.log(data.data);
-//         for (let ingredient in data.data){
-//             console.log(ingredient + '\n');
-//         }
-//     })
-// }
-
 function App() {
   return (
 

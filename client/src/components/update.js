@@ -2,23 +2,26 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form } from 'semantic-ui-react';
 import axios from "axios";
 import myConstants from "../constants";
+import {useNavigate} from "react-router-dom";
 
 function Update() {
     const [name, setName] = useState("");
     const [id, setID] = useState(null)
+    const history = useNavigate();
 
     const updateAPIData = () => {
+
         axios.put(myConstants.ingredientCategoryURL, {
             id: id,
             name: name,
+        }).then(()=>{
+            history(-1);
         })
     }
 
     useEffect(() => {
         setID(localStorage.getItem("id"));
-        // console.log(localStorage.getItem("id"));
         setName(localStorage.getItem("name"));
-        // console.log(localStorage.getItem("name"));
     }, [])
 
     return (

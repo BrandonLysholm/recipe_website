@@ -4,16 +4,17 @@ import React, {useState} from 'react';
 import {Button, Form } from 'semantic-ui-react';
 import axios from "axios";
 import myConstants from "../constants";
-// import { useHistory } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Create() {
-    // const history = useHistory();
+    const history = useNavigate();
     const [name, setName] = useState("");
 
     const postData = () => {
-        console.log(name)
         axios.post(myConstants.ingredientCategoryURL,{
             name
+        }).then(()=>{
+            history(-1);
         })
     }
     return (

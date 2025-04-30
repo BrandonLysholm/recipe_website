@@ -8,12 +8,6 @@ const {sequelize} = require('../dataSource');
 router.get('/', async (req,res)=>{
     let allIngredientCategories = await IngredientCategory.findAll();
 
-    // for (let ingredientCat of allIngredientCategories){
-    //     console.log('Ingredient Category:\n');
-    //     console.log(ingredientCat.dataValues);
-    //     console.log('\n\n');
-    // }
-
     res.send(allIngredientCategories);
 })
 
@@ -74,7 +68,7 @@ router.put('/', async (req,res)=>{
 
 router.delete('/:id', async (req,res)=>{
     let status = 200;
-
+    let msg = "weird";
     if (req.params.id !== undefined){
 
         if (await IngredientCategory.findByPk(req.params.id)){
@@ -93,24 +87,5 @@ router.delete('/:id', async (req,res)=>{
     }
     res.status(status).send(msg);
 })
-
-// router.delete('', async (req,res)=>{
-//     let status = 200;
-//     if (req.body !== undefined && req.body.id !== undefined) {
-//         let categoryID = req.body.id;
-//         if (await IngredientCategory.findByPk(categoryID)){
-//             await IngredientCategory.destroy({where:{id:categoryID}});
-//             status = 200;
-//         } else {
-//             status = 404;
-//         }
-//     } else {
-//         status = 400;
-//     }
-//
-//     res.status(status)
-//     res.send()
-//
-// })
 
 module.exports = router;
