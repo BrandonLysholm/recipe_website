@@ -23,6 +23,9 @@ function Read() {
             .then(()=> {
                 getData();
             })
+            .catch((error)=> {
+                alert(error.response.data);
+            })
     }
 
     const getData = () => {

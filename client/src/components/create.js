@@ -11,10 +11,13 @@ function Create() {
     const [name, setName] = useState("");
 
     const postData = () => {
+
         axios.post(myConstants.ingredientCategoryURL,{
             name
         }).then(()=>{
             history(-1);
+        }).catch((error)=>{
+            alert(error.response.data);
         })
     }
     return (

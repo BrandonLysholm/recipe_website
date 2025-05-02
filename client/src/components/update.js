@@ -16,6 +16,8 @@ function Update() {
             name: name,
         }).then(()=>{
             history(-1);
+        }).catch((error)=>{
+            alert(error.response.data);
         })
     }
 

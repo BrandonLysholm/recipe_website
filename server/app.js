@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 
 const ingredientCategoryRouter = require('./routes/ingredientCategoryRouter');
+const recipeCategoryRouter = require('./routes/recipeCategoryRouter');
 
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status#client_error_responses
 
@@ -18,3 +19,4 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/ingredientCategory',ingredientCategoryRouter);
+app.use('/recipeCategory',recipeCategoryRouter);
