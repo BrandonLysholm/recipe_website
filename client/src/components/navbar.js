@@ -1,7 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function myNav() {
     return (
@@ -11,6 +10,7 @@ function myNav() {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/ingredientCategories">Ingredient Categories</Nav.Link>
+                        <Nav.Link href="/recipeCategories">Recipe Categories</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

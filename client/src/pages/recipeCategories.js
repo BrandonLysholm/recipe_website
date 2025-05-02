@@ -5,11 +5,10 @@ import {Button} from 'semantic-ui-react';
 import myConstants from "../constants";
 
 
-
-const IngredientCategories = () => {
+const RecipeCategories = () => {
     const navigate = useNavigate();
     function setData() {
-        localStorage.setItem('createURL', myConstants.ingredientCategoryURL);
+        localStorage.setItem('createURL', myConstants.recipeCategoryURL);
         navigate('/create');
 
     }
@@ -22,9 +21,9 @@ const IngredientCategories = () => {
             <Button onClick={()=>{setData()}}>Add New</Button>
 
             <h3>Read:</h3>
-            <Read URL={myConstants.ingredientCategoryURL} />
+            <Read URL={myConstants.recipeCategoryURL} />
         </div>
     );
 };
 
-export default IngredientCategories;
+export default RecipeCategories;

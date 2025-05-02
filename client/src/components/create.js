@@ -3,16 +3,17 @@
 import React, {useState} from 'react';
 import {Button, Form } from 'semantic-ui-react';
 import axios from "axios";
-import myConstants from "../constants";
 import {useNavigate} from "react-router-dom";
+// import myConstants from "../constants";
 
 function Create() {
     const history = useNavigate();
     const [name, setName] = useState("");
+    // const createURL = localStorage.getItem(myConstants.ingredientCategoryURL);
+    const createURL = localStorage.getItem("createURL");
 
     const postData = () => {
-
-        axios.post(myConstants.ingredientCategoryURL,{
+        axios.post(createURL,{
             name
         }).then(()=>{
             history(-1);

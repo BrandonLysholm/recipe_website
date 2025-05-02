@@ -9,9 +9,11 @@ import {
 } from 'react-router-dom';
 import Home from './pages';
 import IngredientCategories from './pages/ingredientCategories';
-import myNav from "./components/navbar";
+import RecipeCategories from './pages/recipeCategories'
+
 
 // Components
+import myNav from "./components/navbar";
 import Create from './components/create'
 import Update from './components/update'
 
@@ -30,8 +32,9 @@ function App() {
           <Routes>
               <Route exact path="/" element={<Home/>}/>
               <Route path="/ingredientCategories" element={<IngredientCategories/>}/>
-              <Route path="ingredientCategories/create" element={<Create/>}/>
-              <Route path="ingredientCategories/update" element={<Update/>}/>
+              <Route path="/recipeCategories" element={<RecipeCategories/>}/>
+              <Route path="/create" element={<Create/>}/>
+              <Route path="/update" element={<Update/>}/>
           </Routes>
       </Router>
   );

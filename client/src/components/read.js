@@ -2,24 +2,27 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Table, Button } from 'semantic-ui-react';
 import axios from "axios";
-import myConstants from "../constants";
 
-function Read() {
+function Read(passedData) {
     const [apiData, setApiData] = useState([]);
     useEffect(() => {
-        axios.get(myConstants.ingredientCategoryURL)
+        axios.get(passedData.URL)
             .then((response) => {
                 setApiData(response.data);
             })
-    },[])
+            .catch((error) => {
+                console.log(error);
+            })
+    },[passedData]);
 
     const setData = (data) => {
+        localStorage.setItem('editURL', passedData.URL);
         localStorage.setItem('id', data.id);
         localStorage.setItem('name', data.name);
     }
 
     const onDelete = (id) => {
-        axios.delete(myConstants.ingredientCategoryURL+'/'+id)
+        axios.delete(passedData.URL+'/'+id)
             .then(()=> {
                 getData();
             })
@@ -29,7 +32,7 @@ function Read() {
     }
 
     const getData = () => {
-        axios.get(myConstants.ingredientCategoryURL)
+        axios.get(passedData.URL)
         .then((response) => {
             setApiData(response.data);
         })
@@ -52,7 +55,7 @@ function Read() {
                             <Table.Row>
                                 <Table.Cell>{data.id}</Table.Cell>
                                 <Table.Cell>{data.name}</Table.Cell>
-                                <Link to ='./update'>
+                                <Link to ='/update'>
                                     <Table.Cell>
                                         <Button onClick={()=>setData(data)}>
                                             Update
@@ -73,6 +76,5 @@ function Read() {
     )
 }
 
-// TODO: update when new entries are added
 
 export default Read;

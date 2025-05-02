@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Form } from 'semantic-ui-react';
 import axios from "axios";
-import myConstants from "../constants";
 import {useNavigate} from "react-router-dom";
 
 function Update() {
@@ -11,7 +10,7 @@ function Update() {
 
     const updateAPIData = () => {
 
-        axios.put(myConstants.ingredientCategoryURL, {
+        axios.put(localStorage.getItem('editURL'), {
             id: id,
             name: name,
         }).then(()=>{
