@@ -4,6 +4,11 @@ const cors = require('cors');
 
 const ingredientCategoryRouter = require('./routes/ingredientCategoryRouter');
 const recipeCategoryRouter = require('./routes/recipeCategoryRouter');
+const ingredientRouter = require('./routes/ingredientRouter');
+
+const {addAssociations} = require('./private/javascript/Associations');
+
+const createAllTables = require('./fixtures/createTables.fix');
 
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status#client_error_responses
 
@@ -20,3 +25,7 @@ app.get('/',(req,res)=>{
 
 app.use('/ingredientCategory',ingredientCategoryRouter);
 app.use('/recipeCategory',recipeCategoryRouter);
+app.use('/ingredient', ingredientRouter);
+
+addAssociations();
+createAllTables(false);
