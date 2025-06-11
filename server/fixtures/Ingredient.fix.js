@@ -27,7 +27,7 @@ async function fillIngredientTable() {
 
     for (const ingredient of Ingredients) {
         let addedIngredient = await Ingredient.create({
-            ingredientName: ingredient.name,
+            name: ingredient.name,
             IngredientCategoryId: ingredient.cat.id
         })
     }
