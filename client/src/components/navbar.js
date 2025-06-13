@@ -9,6 +9,7 @@ function myNav() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/ingredient">Ingredients</Nav.Link>
                         <Nav.Link href="/ingredientCategories">Ingredient Categories</Nav.Link>
                         <Nav.Link href="/recipeCategories">Recipe Categories</Nav.Link>
                     </Nav>

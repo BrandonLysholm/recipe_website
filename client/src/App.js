@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 import Home from './pages';
 import IngredientCategories from './pages/ingredientCategories';
-import RecipeCategories from './pages/recipeCategories'
+import Ingredient from './pages/ingredient';
+import RecipeCategories from './pages/recipeCategories';
 
 
 // Components
@@ -33,6 +34,7 @@ function App() {
               <Route exact path="/" element={<Home/>}/>
               <Route path="/ingredientCategories" element={<IngredientCategories/>}/>
               <Route path="/recipeCategories" element={<RecipeCategories/>}/>
+              <Route path="/Ingredient" element={<Ingredient />} />
               <Route path="/create" element={<Create/>}/>
               <Route path="/update" element={<Update/>}/>
           </Routes>
